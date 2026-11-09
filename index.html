@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Hamdi Badr | Software QA Engineer — Portfolio</title>
+  <meta name="description" content="Mohamed Hamdi Badr — Mid-Level Software QA Engineer, Dual ISTQB® Certified (CTFL v4.0 & CT-MAT). Manual, API (Postman/Bruno), Performance (JMeter), and SQL Testing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070709;
+      --bg-surface: #101015;
+      --bg-card: #14141b;
+      --bg-card-hover: #1a1a24;
+      --gold-light: #fae08c;
+      --gold-main: #d4af37;
+      --gold-bright: #f5b935;
+      --gold-dark: #9a7b1c;
+      --border-gold: rgba(212, 175, 55, 0.22);
+      --border-gold-hover: rgba(245, 185, 53, 0.65);
+      --text-white: #f8fafc;
+      --text-silver: #cbd5e1;
+      --text-muted: #94a3b8;
+      --emerald: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 12% 12%, rgba(212, 175, 55, 0.11) 0%, transparent 38%),
+        radial-gradient(circle at 88% 22%, rgba(245, 185, 53, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(212, 175, 55, 0.07) 0%, transparent 45%);
+      color: var(--text-white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* Top Scroll Progress Bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-bright), var(--gold-light));
+      z-index: 9999;
+      box-shadow: 0 0 12px var(--gold-bright);
+      transition: width 0.08s linear;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .gold-text {
+      background: linear-gradient(135deg, #fff3c4 0%, #f5b935 50%, #c69320 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media print {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 7, 9, 0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 14px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold-dark));
+      color: #070709;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 5px 8px;
+      border-radius: 99px;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-silver);
+      padding: 6px 14px;
+      border-radius: 99px;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #070709;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-bright));
+      font-weight: 600;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 12px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      border: none;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #fae08c 0%, #f5b935 55%, #c5921d 100%);
+      color: #070709;
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.28);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(245, 185, 53, 0.48);
+    }
+
+    .btn-outline {
+      background: rgba(212, 175, 55, 0.06);
+      color: var(--gold-light);
+      border: 1px solid var(--border-gold);
+    }
+
+    .btn-outline:hover {
+      background: rgba(212, 175, 55, 0.15);
+      border-color: var(--gold-bright);
+      color: #ffffff;
+      transform: translateY(-3px);
+    }
+
+    .btn-sm {
+      padding: 9px 16px;
+      font-size: 0.84rem;
+      border-radius: 10px;
+    }
+
+    /* Hero Section - Split Executive Layout */
+    .hero {
+      padding: 64px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #6ee7b7;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 18px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 4.2vw, 3.35rem);
+      font-weight: 800;
+      line-height: 1.14;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    .typewriter-row {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--gold-bright);
+      margin-bottom: 18px;
+      min-height: 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 18px;
+      background: var(--gold-bright);
+      animation: blink 0.9s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .hero-desc {
+      font-size: 1.04rem;
+      color: var(--text-silver);
+      margin-bottom: 28px;
+      max-width: 620px;
+    }
+
+    .hero-desc strong {
+      color: var(--gold-light);
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .cert-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .mini-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(212, 175, 55, 0.09);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      padding: 5px 12px;
+      border-radius: 8px;
+    }
+
+    /* Hero Right - Luxury Photo Card with Floating Badges */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      border-radius: 24px;
+      padding: 10px;
+      background: linear-gradient(145deg, rgba(245, 185, 53, 0.4), rgba(212, 175, 55, 0.08));
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(212, 175, 55, 0.12);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 410px;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 18px;
+      display: block;
+    }
+
+    .float-badge {
+      position: absolute;
+      background: rgba(16, 16, 21, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-gold-hover);
+      padding: 10px 14px;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: floatY 4s ease-in-out infinite;
+    }
+
+    .float-badge-1 {
+      top: 18px;
+      left: -24px;
+    }
+
+    .float-badge-2 {
+      bottom: 24px;
+      right: -18px;
+      animation-delay: 2s;
+    }
+
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .float-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(245, 185, 53, 0.16);
+      color: var(--gold-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .float-text strong {
+      display: block;
+      font-size: 0.82rem;
+      color: #ffffff;
+    }
+
+    .float-text span {
+      font-size: 0.72rem;
+      color: var(--gold-light);
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .stat-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 22px 18px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-bright);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.14);
+    }
+
+    .stat-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .stat-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .stat-caption {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Section Headers */
+    section {
+      padding: 72px 0;
+    }
+
+    .sec-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .sec-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-bright);
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--border-gold);
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 12px;
+    }
+
+    .sec-title {
+      font-size: clamp(1.8rem, 3.2vw, 2.45rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .sec-subtitle {
+      color: var(--text-muted);
+      max-width: 660px;
+      font-size: 0.98rem;
+    }
+
+    /* Interactive QA Terminal + Skills Bento */
+    .terminal-and-skills {
+      display: grid;
+      grid-template-columns: 0.95fr 1.25fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .qa-terminal {
+      background: #0b0b0f;
+      border: 1px solid var(--border-gold);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .term-header {
+      background: #16161f;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .term-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .term-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .term-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .term-body {
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .term-line {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-silver);
+    }
+
+    .pass-badge {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 1px 7px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .term-progress-wrap {
+      background: rgba(255, 255, 255, 0.07);
+      height: 7px;
+      border-radius: 99px;
+      overflow: hidden;
+      margin: 14px 0 8px;
+    }
+
+    .term-progress-bar {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, var(--gold-bright), var(--emerald));
+      transition: width 0.4s ease;
+    }
+
+    .skills-bento {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .skill-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 0.25s ease;
+    }
+
+    .skill-box:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--gold-bright);
+      transform: translateY(-4px);
+    }
+
+    .skill-box-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .skill-box-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+    }
+
+    .skill-box h3 {
+      font-size: 1.05rem;
+      color: #ffffff;
+    }
+
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .skill-chip {
+      font-size: 0.79rem;
+      font-weight: 500;
+      color: var(--text-silver);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .skill-box:hover .skill-chip {
+      border-color: rgba(212, 175, 55, 0.3);
+      color: #ffffff;
+    }
+
+    /* Projects Section */
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 34px;
+    }
+
+    .tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      color: var(--text-silver);
+      padding: 9px 20px;
+      border-radius: 99px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-bright));
+      color: #070709;
+      border-color: transparent;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .proj-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 18px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proj-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+
+    .proj-card:hover {
+      transform: translateY(-6px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-gold-hover);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 25px rgba(212, 175, 55, 0.1);
+    }
+
+    .proj-card:hover::before {
+      opacity: 1;
+    }
+
+    .proj-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .proj-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border-gold);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .proj-market {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .proj-title {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .proj-desc {
+      font-size: 0.87rem;
+      color: var(--text-silver);
+      margin-bottom: 16px;
+      list-style: none;
+    }
+
+    .proj-desc li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 5px;
+    }
+
+    .proj-desc li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: var(--gold-bright);
+    }
+
+    .proj-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .proj-tags {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .proj-tag {
+      font-size: 0.71rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      border-radius: 5px;
+    }
+
+    .proj-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .gold-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #070709;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-bright));
+      padding: 5px 11px;
+      border-radius: 7px;
+    }
+
+    .gold-link-btn:hover {
+      filter: brightness(1.1);
+      transform: scale(1.04);
+    }
+
+    /* Experience Cards */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .exp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-left: 4px solid var(--gold-bright);
+      border-radius: 16px;
+      padding: 22px 26px;
+      transition: all 0.25s ease;
+    }
+
+    .exp-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--gold-bright);
+      transform: translateX(4px);
+    }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .exp-role {
+      font-size: 1.14rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .exp-company {
+      color: var(--gold-bright);
+      font-weight: 700;
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border-gold);
+      padding: 4px 12px;
+      border-radius: 99px;
+    }
+
+    .exp-summary {
+      font-size: 0.92rem;
+      color: var(--text-silver);
+    }
+
+    /* QA Methodology 5 Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 22px 16px;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+
+    .step-card:hover {
+      border-color: var(--gold-bright);
+      transform: translateY(-5px);
+    }
+
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      margin: 0 auto 12px;
+      background: rgba(212, 175, 55, 0.14);
+      border: 1px solid var(--gold-bright);
+      color: var(--gold-light);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-card h4 {
+      font-size: 0.96rem;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .step-card p {
+      font-size: 0.81rem;
+      color: var(--text-muted);
+    }
+
+    /* Certifications Grid */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .cert-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      transition: all 0.25s ease;
+    }
+
+    .cert-box:hover {
+      border-color: var(--gold-bright);
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+    }
+
+    .cert-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .cert-medal {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(245, 185, 53, 0.22), rgba(212, 175, 55, 0.05));
+      border: 1px solid var(--border-gold-hover);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    .cert-info h4 {
+      font-size: 0.98rem;
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
+
+    .cert-info p {
+      font-size: 0.81rem;
+      color: var(--text-muted);
+    }
+
+    .copy-id-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border-gold);
+      padding: 6px 11px;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .copy-id-btn:hover {
+      background: var(--gold-bright);
+      color: #070709;
+      font-weight: 700;
+    }
+
+    /* Contact Section */
+    .contact-wrap {
+      background: linear-gradient(145deg, #14141d 0%, #0c0c12 100%);
+      border: 1px solid var(--border-gold-hover);
+      border-radius: 24px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 36px;
+      align-items: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .contact-tile {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      padding: 16px;
+      transition: all 0.22s ease;
+    }
+
+    .contact-tile:hover {
+      border-color: var(--gold-bright);
+      background: rgba(212, 175, 55, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .contact-tile span {
+      display: block;
+      font-size: 0.76rem;
+      color: var(--gold-bright);
+      font-weight: 600;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-tile strong {
+      font-size: 0.9rem;
+      color: #ffffff;
+      word-break: break-all;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-gold);
+      padding: 28px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    /* Toast Notification */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-bright));
+      color: #070709;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
+
+    #toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .terminal-and-skills, .contact-wrap { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-bar, .certs-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 620px) {
+      .projects-grid, .skills-bento, .certs-grid, .contact-methods, .steps-grid { grid-template-columns: 1fr; }
+      .float-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Toast -->
+  <div id="toast">✓ Copied to clipboard!</div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-logo">MB</div>
+        <div>
+          <span style="display:block; line-height:1.1;">Mohamed Hamdi Badr</span>
+          <span style="font-size:0.73rem; color:var(--gold-bright); font-weight:600;">Software QA Engineer • ISTQB®</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#about" class="active">Overview</a>
+        <a href="#skills">Skills &amp; Lab</a>
+        <a href="#projects">Projects (12)</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="display:flex; gap:10px;">
+        <a href="Mohamed_Hamdi_Badr_Software_QA_Engineer_CV.pdf" download class="btn btn-outline btn-sm">📥 Download CV</a>
+        <a href="#contact" class="btn btn-gold btn-sm">Hire Me</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="about">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="status-pill">
+            <span class="pulse-dot"></span>
+            <span>Available for Mid-Level QA Roles • Cairo, Hybrid, Remote &amp; Relocation</span>
+          </div>
+
+          <h1 class="hero-title">
+            Engineering Software <span class="gold-text">Reliability</span> Before Code Hits Production.
+          </h1>
+
+          <div class="typewriter-row">
+            <span>&gt;</span>
+            <span id="typewriter">Dual ISTQB® Certified (CTFL v4.0 &amp; CT-MAT)</span>
+            <span class="cursor"></span>
+          </div>
+
+          <p class="hero-desc">
+            I am <strong>Mohamed Hamdi Badr</strong>, a Mid-Level Software QA Engineer with <strong>2+ years of hands-on experience</strong> testing <strong>13+ live Enterprise ERP, FinTech, Government, LegalTech, E-Commerce, and IoT platforms</strong> across Egypt, Saudi Arabia, Kuwait, and the UAE.
+          </p>
+
+          <div class="hero-btns">
+            <a href="#projects" class="btn btn-gold">🚀 View 12+ Live Projects</a>
+            <a href="Mohamed_Hamdi_Badr_Software_QA_Engineer_CV.pdf" download class="btn btn-outline">📄 Download Official CV (PDF)</a>
+            <a href="https://wa.me/201157236769" target="_blank" class="btn btn-outline">💬 WhatsApp</a>
+          </div>
+
+          <div class="cert-pills-row">
+            <span class="mini-badge">🏅 ISTQB® CTFL v4.0</span>
+            <span class="mini-badge">📱 ISTQB® CT-MAT (Mobile)</span>
+            <span class="mini-badge">🔌 Postman &amp; Bruno API</span>
+            <span class="mini-badge">⚡ Apache JMeter</span>
+            <span class="mini-badge">🗄️ SQL Validation</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="photo-frame">
+            <img src="profile.jpg" alt="Mohamed Hamdi Badr" />
+            <div class="float-badge float-badge-1">
+              <div class="float-icon">🏆</div>
+              <div class="float-text">
+                <strong>Dual ISTQB® Certified</strong>
+                <span>CTFL v4.0 &amp; CT-MAT</span>
+              </div>
+            </div>
+            <div class="float-badge float-badge-2">
+              <div class="float-icon">🌍</div>
+              <div class="float-text">
+                <strong>13+ Live Systems</strong>
+                <span>Egypt • KSA • Kuwait • UAE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Counter Bar -->
+      <div class="stats-bar reveal">
+        <div class="stat-box">
+          <div class="stat-number gold-text" data-target="2" data-suffix="+">2+</div>
+          <div class="stat-title">Years of QA Experience</div>
+          <div class="stat-caption">Enterprise &amp; Crowdtesting</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number gold-text" data-target="13" data-suffix="+">13+</div>
+          <div class="stat-title">Production Platforms Tested</div>
+          <div class="stat-caption">Web, iOS &amp; Android Apps</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number gold-text" data-target="4" data-suffix="">4</div>
+          <div class="stat-title">International Credentials</div>
+          <div class="stat-caption">2x ISTQB® + 2x TAU API</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number gold-text" data-target="4" data-suffix="">4</div>
+          <div class="stat-title">MENA Markets Served</div>
+          <div class="stat-caption">Egypt, KSA, Kuwait &amp; UAE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & INTERACTIVE QA TERMINAL -->
+  <section id="skills">
+    <div class="container">
+      <div class="sec-header reveal">
+        <span class="sec-eyebrow">⚙️ Core Technical Arsenal</span>
+        <h2 class="sec-title">Full-Spectrum <span class="gold-text">Quality Assurance</span></h2>
+        <p class="sec-subtitle">
+          Combining shift-left manual &amp; exploratory testing with RESTful API validation, SQL database auditing, JMeter performance benchmarking, and Java/Selenium automation.
+        </p>
+      </div>
+
+      <div class="terminal-and-skills reveal">
+        <!-- Interactive Live QA Terminal -->
+        <div class="qa-terminal">
+          <div class="term-header">
+            <div class="term-dots">
+              <span class="term-dot" style="background:#ef4444;"></span>
+              <span class="term-dot" style="background:#f59e0b;"></span>
+              <span class="term-dot" style="background:#10b981;"></span>
+            </div>
+            <span class="term-title">mhb-qa-suite — bash</span>
+            <button onclick="runQASuite()" class="copy-id-btn" style="padding:3px 10px;">▶ Re-Run Suite</button>
+          </div>
+          <div class="term-body" id="terminalBody">
+            <div>
+              <div class="term-line" style="color:var(--gold-light); margin-bottom:14px;">
+                $ npx run-qa-verification --profile="Mohamed Hamdi Badr"
+              </div>
+              <div class="term-line">
+                <span class="pass-badge">PASS</span>
+                <span>Functional, Regression &amp; Exploratory Suites</span>
+              </div>
+              <div class="term-line">
+                <span class="pass-badge">PASS</span>
+                <span>Mobile App Testing (iOS &amp; Android Real Devices)</span>
+              </div>
+              <div class="term-line">
+                <span class="pass-badge">PASS</span>
+                <span>REST API Contract &amp; Payload QA (Postman / Bruno)</span>
+              </div>
+              <div class="term-line">
+                <span class="pass-badge">PASS</span>
+                <span>Load &amp; Stress Benchmarking (Apache JMeter)</span>
+              </div>
+              <div class="term-line">
+                <span class="pass-badge">PASS</span>
+                <span>SQL Database &amp; Financial Ledger Auditing</span>
+              </div>
+              <div class="term-line">
+                <span class="pass-badge">PASS</span>
+                <span>Java + Selenium WebDriver &amp; RestAssured</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="term-progress-wrap">
+                <div class="term-progress-bar" id="termBar"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.76rem; color:#6ee7b7;">
+                <span id="termStatus">✓ All 6 QA Suites Passed (0 Failures)</span>
+                <span>100% Ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Organized Skill Cards -->
+        <div class="skills-bento">
+          <div class="skill-box">
+            <div class="skill-box-head">
+              <div class="skill-box-icon">🔍</div>
+              <h3>Manual &amp; Mobile QA</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip">Test Strategy &amp; Planning</span>
+              <span class="skill-chip">Test Case Design</span>
+              <span class="skill-chip">Functional &amp; Integration</span>
+              <span class="skill-chip">Regression &amp; Smoke</span>
+              <span class="skill-chip">Exploratory Testing</span>
+              <span class="skill-chip">iOS &amp; Android QA</span>
+              <span class="skill-chip">RTL/LTR Localization</span>
+              <span class="skill-chip">UAT Support</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <div class="skill-box-head">
+              <div class="skill-box-icon">🔌</div>
+              <h3>API &amp; Performance QA</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip">Postman Collections</span>
+              <span class="skill-chip">Bruno (Git-Native API)</span>
+              <span class="skill-chip">RESTful APIs</span>
+              <span class="skill-chip">JSON/XML Schema</span>
+              <span class="skill-chip">Apache JMeter</span>
+              <span class="skill-chip">Load &amp; Stress Testing</span>
+              <span class="skill-chip">Response Time Analysis</span>
+              <span class="skill-chip">Throughput Monitoring</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <div class="skill-box-head">
+              <div class="skill-box-icon">💻</div>
+              <h3>Automation &amp; Coding</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip">Java (Core &amp; OOP)</span>
+              <span class="skill-chip">Java Collections</span>
+              <span class="skill-chip">Exception Handling</span>
+              <span class="skill-chip">Selenium WebDriver</span>
+              <span class="skill-chip">RestAssured</span>
+              <span class="skill-chip">Page Object Model (POM)</span>
+              <span class="skill-chip">TestNG / JUnit</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <div class="skill-box-head">
+              <div class="skill-box-icon">🗄️</div>
+              <h3>Database, Agile &amp; AI</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip">SQL Queries &amp; Joins</span>
+              <span class="skill-chip">CRUD Data Integrity</span>
+              <span class="skill-chip">Jira</span>
+              <span class="skill-chip">Azure DevOps</span>
+              <span class="skill-chip">ClickUp &amp; Trello</span>
+              <span class="skill-chip">Agile / Scrum Triage</span>
+              <span class="skill-chip">AI-Assisted Test Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION (All 12 Live Projects Organized with Category Tabs) -->
+  <section id="projects">
+    <div class="container">
+      <div class="sec-header reveal">
+        <span class="sec-eyebrow">🚀 Production Portfolio</span>
+        <h2 class="sec-title">12 Featured <span class="gold-text">QA Engagements</span></h2>
+        <p class="sec-subtitle">
+          Filter by industry domain and click any project button to inspect the live production web platforms and mobile apps on Google Play.
+        </p>
+      </div>
+
+      <div class="filter-tabs reveal">
+        <button class="tab-btn active" onclick="filterProj('all', this)">All Projects (12)</button>
+        <button class="tab-btn" onclick="filterProj('fintech', this)">ERP, FinTech &amp; POS (3)</button>
+        <button class="tab-btn" onclick="filterProj('gov', this)">Gov, IoT &amp; LegalTech (3)</button>
+        <button class="tab-btn" onclick="filterProj('ecom', this)">E-Commerce &amp; Delivery (3)</button>
+        <button class="tab-btn" onclick="filterProj('edtech', this)">EdTech &amp; Real Estate (3)</button>
+      </div>
+
+      <div class="projects-grid reveal">
+        <!-- 01 -->
+        <div class="proj-card" data-cat="fintech">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">01 • ERP SYSTEM</span>
+              <span class="proj-market">🇪🇬 Gate Gold LLC</span>
+            </div>
+            <h3 class="proj-title">Enterprise Resource Planning (ERP)</h3>
+            <ul class="proj-desc">
+              <li>Validated organizational accounting, admin workflows, and role-based access control (RBAC).</li>
+              <li>Executed integration and SQL verification across core financial transaction modules.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">Functional</span>
+              <span class="proj-tag">SQL</span>
+              <span class="proj-tag">RBAC</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://erpaccounts.gate-gold.com/admin/login" target="_blank" class="gold-link-btn">Live Platform ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="proj-card" data-cat="fintech">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">02 • FINTECH TRADING</span>
+              <span class="proj-market">🇪🇬 Gate Gold LLC</span>
+            </div>
+            <h3 class="proj-title">Electron Borsa – B2B Trading &amp; ERP</h3>
+            <ul class="proj-desc">
+              <li>Tested purchase/sale execution, stock transfers, real-time inventory tracking, and digital wallets.</li>
+              <li>Verified commission calculations, financial dashboards, and real-time pending notifications.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">FinTech QA</span>
+              <span class="proj-tag">API</span>
+              <span class="proj-tag">SQL</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://borsa.gate-gold.com/admin/dashboard" target="_blank" class="gold-link-btn">Live Platform ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="proj-card" data-cat="gov">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">03 • GOV MOBILE APP</span>
+              <span class="proj-market">🇰🇼 Kuwait MOI</span>
+            </div>
+            <h3 class="proj-title">MOI Club App – Ministry of Interior</h3>
+            <ul class="proj-desc">
+              <li>Conducted Functional, Usability, and Mobile testing for the Kuwait Ministry of Interior club app.</li>
+              <li>Executed Performance &amp; Load Testing (JMeter) to resolve response bottlenecks before launch.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">JMeter</span>
+              <span class="proj-tag">Mobile QA</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://play.google.com/store/apps/details?id=com.moimobileapplication&hl=en" target="_blank" class="gold-link-btn">Google Play ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="proj-card" data-cat="gov">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">04 • IOT TELEMETRY</span>
+              <span class="proj-market">🇸🇦 Saudi Arabia</span>
+            </div>
+            <h3 class="proj-title">Safe Road – IoT Traffic Safety System</h3>
+            <ul class="proj-desc">
+              <li>Tested real-time IoT device-to-backend telemetry communication and sensor data validation in KSA.</li>
+              <li>Verified REST API integrations and data accuracy between road hardware and cloud dashboards.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">Postman</span>
+              <span class="proj-tag">Bruno</span>
+              <span class="proj-tag">IoT</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://www.saferoad.com/" target="_blank" class="gold-link-btn">Web ↗</a>
+              <a href="https://play.google.com/store/apps/details?id=com.syrovatko.saferoad" target="_blank" class="gold-link-btn">App ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 -->
+        <div class="proj-card" data-cat="edtech">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">05 • MEDICAL EDTECH</span>
+              <span class="proj-market">🇰🇼 / 🇪🇬 Web &amp; Mobile</span>
+            </div>
+            <h3 class="proj-title">KNAcademy – Medical E-Learning</h3>
+            <ul class="proj-desc">
+              <li>Validated student registration, course catalogs, and subscription lifecycles on Web &amp; Mobile.</li>
+              <li>Tested secure payment gateways, offline video playback, and learning progress tracking.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">Web &amp; Mobile</span>
+              <span class="proj-tag">Payments</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://knacademy.net/" target="_blank" class="gold-link-btn">Live Platform ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 -->
+        <div class="proj-card" data-cat="ecom">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">06 • MARKETPLACE</span>
+              <span class="proj-market">🇰🇼 / 🇪🇬 E-Commerce</span>
+            </div>
+            <h3 class="proj-title">Sooq.in – Open Marketplace Platform</h3>
+            <ul class="proj-desc">
+              <li>Validated multi-vendor product listings, advanced search, dynamic filtering, and cart logic.</li>
+              <li>Tested user onboarding, profile management, data privacy, and secure checkout pipelines.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">E2E QA</span>
+              <span class="proj-tag">E-Commerce</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://sooq.in/" target="_blank" class="gold-link-btn">Live Platform ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 -->
+        <div class="proj-card" data-cat="gov">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">07 • LEGALTECH SAAS</span>
+              <span class="proj-market">🇸🇦 Saudi Arabia</span>
+            </div>
+            <h3 class="proj-title">Lawhub24 &amp; Taqneen Legal Platforms</h3>
+            <ul class="proj-desc">
+              <li>Executed Manual and API Testing for multi-tenant legal case management and task scheduling in KSA.</li>
+              <li>Validated Client &amp; Lawyer flows: registration, verification, consultation booking, and live chat.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">API QA</span>
+              <span class="proj-tag">Web &amp; Mobile</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://lawhub24.com/" target="_blank" class="gold-link-btn">Lawhub24 ↗</a>
+              <a href="https://eg.app.tqneen.com/" target="_blank" class="gold-link-btn">Taqneen ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 -->
+        <div class="proj-card" data-cat="ecom">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">08 • FOOD DELIVERY</span>
+              <span class="proj-market">🇪🇬 Apps Square</span>
+            </div>
+            <h3 class="proj-title">Sree3 – Food &amp; Order Delivery App</h3>
+            <ul class="proj-desc">
+              <li>Conducted E2E and exploratory testing across login, onboarding, restaurant listings, and menus.</li>
+              <li>Verified shopping cart calculations, payment gateways, and live GPS order tracking in Agile sprints.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">Mobile QA</span>
+              <span class="proj-tag">Agile Scrum</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://play.google.com/store/apps/details?id=com.cems_it.sree3_client" target="_blank" class="gold-link-btn">Google Play ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 09 -->
+        <div class="proj-card" data-cat="ecom">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">09 • E-PHARMACY</span>
+              <span class="proj-market">🇸🇦 / 🇪🇬 Apps Square</span>
+            </div>
+            <h3 class="proj-title">Outlet Plus Pharmacy (Web &amp; Mobile)</h3>
+            <ul class="proj-desc">
+              <li>Authored and executed comprehensive test suites across both Web and Mobile e-pharmacy apps.</li>
+              <li>Validated user settings, push notifications, Arabic/English localization, and security flows.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">Localization</span>
+              <span class="proj-tag">Cross-Platform</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://www.outletplus.sa/" target="_blank" class="gold-link-btn">Web ↗</a>
+              <a href="https://play.google.com/store/apps/details?id=com.dawaa.outlets&hl=en" target="_blank" class="gold-link-btn">App ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="proj-card" data-cat="edtech">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">10 • PROPTECH UAE</span>
+              <span class="proj-market">🇦🇪 Dubai, UAE</span>
+            </div>
+            <h3 class="proj-title">Pinnacle Real Estate Platform</h3>
+            <ul class="proj-desc">
+              <li>Validated Dubai property listings, dynamic search filters, lead forms, and UX responsiveness.</li>
+              <li>Tested 4-language localization (Arabic, English, Russian, Spanish), ensuring RTL/LTR accuracy.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">4 Languages</span>
+              <span class="proj-tag">RTL/LTR</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://pinnacleproperties.ae/" target="_blank" class="gold-link-btn">Live Platform ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="proj-card" data-cat="fintech">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">11 • RETAIL POS</span>
+              <span class="proj-market">🇪🇬 Pure Soft</span>
+            </div>
+            <h3 class="proj-title">Point of Sale (POS) &amp; Inventory</h3>
+            <ul class="proj-desc">
+              <li>Conducted functional, integration, and exploratory testing on a commercial Retail POS system.</li>
+              <li>Validated billing calculations, discount rules, and real-time sales-to-inventory synchronization.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">POS QA</span>
+              <span class="proj-tag">Inventory Sync</span>
+            </div>
+            <div class="proj-links">
+              <span class="proj-tag" style="color:var(--gold-light); border:1px solid var(--border-gold);">Enterprise System</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="proj-card" data-cat="edtech">
+          <div>
+            <div class="proj-meta">
+              <span class="proj-num">12 • EDTECH PORTAL</span>
+              <span class="proj-market">🇪🇬 Pure Soft</span>
+            </div>
+            <h3 class="proj-title">Tlamyz Arena – Educational Web App</h3>
+            <ul class="proj-desc">
+              <li>Performed functional, UI, and cross-browser testing across student and teacher web portals.</li>
+              <li>Verified end-to-end user journeys and role-based permissions prior to production release.</li>
+            </ul>
+          </div>
+          <div class="proj-bottom">
+            <div class="proj-tags">
+              <span class="proj-tag">Web QA</span>
+              <span class="proj-tag">Regression</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://fsoal.sys-web.net/" target="_blank" class="gold-link-btn">Live Platform ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="sec-header reveal">
+        <span class="sec-eyebrow">💼 Career Timeline</span>
+        <h2 class="sec-title">Professional <span class="gold-text">Experience</span></h2>
+        <p class="sec-subtitle">
+          Consistent progression delivering high-reliability releases across enterprise, FinTech, IoT, and consumer platforms.
+        </p>
+      </div>
+
+      <div class="exp-list reveal">
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <span class="exp-role">Software QA Engineer</span> &nbsp;|&nbsp; <span class="exp-company">Gate Gold LLC</span>
+            </div>
+            <span class="exp-date">11/2025 – Present • Dokki, Cairo</span>
+          </div>
+          <p class="exp-summary">
+            Owning end-to-end quality assurance across 5 multi-platform enterprise, FinTech, E-Commerce, and government products in Egypt and Kuwait (ERP System, Electron Borsa, Kuwait MOI Club App, KNAcademy, Sooq.in). Executing Functional, API (Postman), SQL Database, and JMeter Performance Testing.
+          </p>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <span class="exp-role">Software QA Engineer</span> &nbsp;|&nbsp; <span class="exp-company">Startup Defenders</span>
+            </div>
+            <span class="exp-date">06/2025 – 11/2025 • Maadi, Cairo</span>
+          </div>
+          <p class="exp-summary">
+            Delivered Manual, Functional, and RESTful API Testing (Postman &amp; Bruno) for mission-critical IoT traffic safety and LegalTech platforms in Saudi Arabia (Safe Road IoT, Lawhub24, Taqneen), validating backend payload contracts, status codes, and real-time data consistency.
+          </p>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <span class="exp-role">Software QA Engineer</span> &nbsp;|&nbsp; <span class="exp-company">Pure Soft</span>
+            </div>
+            <span class="exp-date">03/2025 – 06/2025 • Shebin El-Kom</span>
+          </div>
+          <p class="exp-summary">
+            Designed test scenarios, executed functional and exploratory testing, and led defect triage across commercial Retail POS and EdTech (Tlamyz Arena) web applications prior to production release.
+          </p>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <span class="exp-role">Software QA Engineer</span> &nbsp;|&nbsp; <span class="exp-company">Apps Square</span>
+            </div>
+            <span class="exp-date">06/2024 – 02/2025 • Tanta</span>
+          </div>
+          <p class="exp-summary">
+            Designed and executed structured test cases, test scenarios, and regression suites across consumer Web and Mobile applications (Sree3 Delivery App &amp; Outlet Plus Pharmacy) within Agile/Scrum sprints.
+          </p>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <span class="exp-role">Freelance QA Engineer (Crowdtesting)</span> &nbsp;|&nbsp; <span class="exp-company">Test IO Platform</span>
+            </div>
+            <span class="exp-date">06/2024 – Present • Remote</span>
+          </div>
+          <p class="exp-summary">
+            Performing real-device functional, exploratory, usability, and 4-language localization testing across international Web and Mobile products (including Pinnacle Real Estate Dubai), authoring high-precision bug reports with network logs and crash traces.
+          </p>
+        </div>
+      </div>
+
+      <!-- 5-Step QA Process -->
+      <div class="steps-grid reveal" style="margin-top: 40px;">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h4>Requirements</h4>
+          <p>Shift-left analysis of user stories &amp; edge cases.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h4>Test Design</h4>
+          <p>BVA, equivalence partitioning &amp; traceability matrices.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h4>Execution</h4>
+          <p>UI, REST API (Postman/Bruno), SQL &amp; JMeter tests.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <h4>Bug Triage</h4>
+          <p>Reproducible steps, logs, payloads &amp; RCA in Jira.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">05</div>
+          <h4>Sign-Off</h4>
+          <p>Confirmation testing, full regression &amp; UAT release.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <div class="sec-header reveal">
+        <span class="sec-eyebrow">🏅 Verified Credentials</span>
+        <h2 class="sec-title">Certifications &amp; <span class="gold-text">Education</span></h2>
+        <p class="sec-subtitle">
+          Click any Credential ID badge below to copy it directly for verification.
+        </p>
+      </div>
+
+      <div class="certs-grid reveal">
+        <div class="cert-box">
+          <div class="cert-left">
+            <div class="cert-medal">🏆</div>
+            <div class="cert-info">
+              <h4>ISTQB® Certified Tester – Foundation Level (CTFL v4.0)</h4>
+              <p>International Software Testing Qualifications Board</p>
+            </div>
+          </div>
+          <button class="copy-id-btn" onclick="copyText('250625056')">ID: 250625056 📋</button>
+        </div>
+
+        <div class="cert-box">
+          <div class="cert-left">
+            <div class="cert-medal">📱</div>
+            <div class="cert-info">
+              <h4>ISTQB® Certified Tester – Mobile App Testing (CT-MAT)</h4>
+              <p>International Software Testing Qualifications Board</p>
+            </div>
+          </div>
+          <button class="copy-id-btn" onclick="copyText('251008214')">ID: 251008214 📋</button>
+        </div>
+
+        <div class="cert-box">
+          <div class="cert-left">
+            <div class="cert-medal">🔌</div>
+            <div class="cert-info">
+              <h4>API Test Automation with Postman</h4>
+              <p>Test Automation University (TAU)</p>
+            </div>
+          </div>
+          <button class="copy-id-btn" onclick="copyText('162fba3a')">ID: 162fba3a 📋</button>
+        </div>
+
+        <div class="cert-box">
+          <div class="cert-left">
+            <div class="cert-medal">⚡</div>
+            <div class="cert-info">
+              <h4>Exploring Service APIs through Test Automation</h4>
+              <p>Test Automation University (TAU)</p>
+            </div>
+          </div>
+          <button class="copy-id-btn" onclick="copyText('b7c50986')">ID: b7c50986 📋</button>
+        </div>
+
+        <div class="cert-box">
+          <div class="cert-left">
+            <div class="cert-medal">🤖</div>
+            <div class="cert-info">
+              <h4>ISTQB® Certified Tester – GenAI Testing (CT-GenAI)</h4>
+              <p>AI-Augmented Software Testing Track</p>
+            </div>
+          </div>
+          <span class="copy-id-btn" style="cursor:default;">In Progress ✨</span>
+        </div>
+
+        <div class="cert-box">
+          <div class="cert-left">
+            <div class="cert-medal">🎓</div>
+            <div class="cert-info">
+              <h4>Bachelor of Arts – Geographic Information Systems (GIS)</h4>
+              <p>Faculty of Arts, Tanta University, Egypt</p>
+            </div>
+          </div>
+          <span class="copy-id-btn" style="cursor:default;">Completed ✓</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-wrap reveal">
+        <div>
+          <span class="sec-eyebrow" style="margin-bottom:14px; display:inline-block;">📬 Let's Connect</span>
+          <h2 class="sec-title" style="margin-bottom:12px;">Ready to Elevate Your <span class="gold-text">Product Quality?</span></h2>
+          <p style="color:var(--text-silver); margin-bottom:26px; font-size:0.98rem;">
+            Available immediately for Mid-Level Software QA Engineer roles (On-Site, Hybrid, Remote, or Relocation). Reach out via Email, Phone, or WhatsApp for a fast response.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:12px;">
+            <a href="mailto:mohamedhamdibadr9@gmail.com?subject=Software%20QA%20Engineer%20Opportunity%20-%20Mohamed%20Hamdi%20Badr" class="btn btn-gold">✉️ Send Email</a>
+            <a href="https://wa.me/201157236769" target="_blank" class="btn btn-outline">💬 WhatsApp Chat</a>
+            <a href="Mohamed_Hamdi_Badr_Software_QA_Engineer_CV.pdf" download class="btn btn-outline">📥 Download CV (PDF)</a>
+          </div>
+        </div>
+
+        <div class="contact-methods">
+          <a href="mailto:mohamedhamdibadr9@gmail.com" class="contact-tile">
+            <span>📧 Email</span>
+            <strong>mohamedhamdibadr9@gmail.com</strong>
+          </a>
+          <a href="tel:+201050156646" class="contact-tile">
+            <span>📞 Phone Call</span>
+            <strong>+20 105 015 6646</strong>
+          </a>
+          <a href="https://wa.me/201157236769" target="_blank" class="contact-tile">
+            <span>💬 WhatsApp</span>
+            <strong>+20 115 723 6769</strong>
+          </a>
+          <a href="https://www.linkedin.com/in/mohamed-hamdi-badr/" target="_blank" class="contact-tile">
+            <span>💼 LinkedIn</span>
+            <strong>/in/mohamed-hamdi-badr</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 <strong style="color:var(--gold-light);">Mohamed Hamdi Badr</strong> • Software QA Engineer (ISTQB® CTFL v4.0 &amp; CT-MAT) • Cairo, Egypt</p>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+    });
+
+    // 2. Typewriter Effect in Hero
+    const phrases = [
+      "Dual ISTQB® Certified (CTFL v4.0 & CT-MAT)",
+      "Manual, Exploratory & Mobile App QA Specialist",
+      "RESTful API Testing (Postman & Bruno)",
+      "Performance & Load Benchmarking (Apache JMeter)",
+      "SQL Database & Financial Integrity Auditing"
+    ];
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typeEl = document.getElementById('typewriter');
+
+    function typeLoop() {
+      const current = phrases[phraseIdx];
+      if (isDeleting) {
+        charIdx--;
+      } else {
+        charIdx++;
+      }
+      typeEl.textContent = current.substring(0, charIdx);
+
+      let speed = isDeleting ? 28 : 55;
+      if (!isDeleting && charIdx === current.length) {
+        speed = 2200;
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        speed = 350;
+      }
+      setTimeout(typeLoop, speed);
+    }
+    setTimeout(typeLoop, 1800);
+
+    // 3. Scroll Reveal Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // 4. Filter Projects with Smooth Animation
+    function filterProj(cat, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.proj-card').forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.display = 'flex';
+          card.style.animation = 'fadeIn 0.35s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 5. Interactive QA Terminal Runner
+    function runQASuite() {
+      const bar = document.getElementById('termBar');
+      const status = document.getElementById('termStatus');
+      bar.style.width = '0%';
+      status.textContent = '⏳ Executing QA Test Suites...';
+      status.style.color = '#fae08c';
+      setTimeout(() => { bar.style.width = '45%'; }, 150);
+      setTimeout(() => { bar.style.width = '85%'; }, 450);
+      setTimeout(() => {
+        bar.style.width = '100%';
+        status.textContent = '✓ All 6 QA Suites Passed (0 Failures)';
+        status.style.color = '#6ee7b7';
+      }, 800);
+    }
+
+    // 6. Copy Credential ID Toast
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      const toast = document.getElementById('toast');
+      toast.textContent = '✓ Credential ID (' + text + ') copied!';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+  </script>
+</body>
+</html>
